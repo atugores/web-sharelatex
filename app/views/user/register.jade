@@ -11,10 +11,8 @@ block content
 							a(href="/login")  #{translate("login_here")}
 					else if newTemplateData.templateName !== undefined
 						h1 #{translate("register_to_edit_template", {templateName:newTemplateData.templateName})}
-
 						div #{translate("already_have_sl_account")}
 							a(href="/login")  #{translate("login_here")}
-
 			.row
 				.col-md-6.col-md-offset-3.col-lg-4.col-lg-offset-4
 					.card
@@ -48,6 +46,17 @@ block content
 									ng-model="password"
 								)
 								span.small.text-primary(ng-show="registerForm.password.$invalid && registerForm.password.$dirty")
+									| #{translate("required")}
+							.form-group
+								label(for='orgpassword') #{translate("orgpassword")}
+								input.form-control(
+									type='password',
+									name='password',
+									placeholder="********",
+									required,
+									ng-model="orgpassword"
+								)
+								span.small.text-primary(ng-show="registerForm.orgpassword.$invalid && registerForm.orgpassword.$dirty")
 									| #{translate("required")}
 							.actions
 								button.btn-primary.btn(
